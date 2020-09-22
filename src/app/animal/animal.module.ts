@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { AnimalComponent } from './animal/animal.component';
 import { AnimalService } from './shared/animal.service';
+import { AnimalsComponent } from './animals/animals.component';
 
 @NgModule({
-  declarations: [AnimalComponent],
+  declarations: [AnimalComponent, AnimalsComponent],
   imports: [CommonModule],
-  exports: [AnimalComponent],
+  exports: [AnimalComponent, AnimalsComponent],
   providers: [AnimalService],
 })
 export class AnimalModule {}
