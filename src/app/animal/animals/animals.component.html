@@ -2,5 +2,6 @@
   <li *ngFor="let animal of animals" appUppercase>
     <img [src]="animal.picture" />
     {{ animal.name }}
+    {{ animal.naissance | date: "shortDate" }}
   </li>
 </ul>
