@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Animal } from './animal';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AnimalService {
   constructor() {}
 
