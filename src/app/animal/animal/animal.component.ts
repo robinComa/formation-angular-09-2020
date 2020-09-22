@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Animal } from './../shared/animal';
+import { AnimalService } from './../shared/animal.service';
 
 @Component({
   selector: 'app-animal',
@@ -10,17 +11,9 @@ import { Animal } from './../shared/animal';
 export class AnimalComponent implements OnInit {
   animal: Animal;
 
-  constructor() {}
+  constructor(private animalService: AnimalService) {}
 
   ngOnInit(): void {
-    this.animal = {
-      id: 1,
-      name: 'Le chat',
-      commentaire: '',
-      espece: '',
-      naissance: 123456789123,
-      picture: '',
-      veterinaire: '',
-    };
+    this.animal = this.animalService.get(1);
   }
 }
