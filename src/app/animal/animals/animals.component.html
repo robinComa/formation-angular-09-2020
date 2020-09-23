@@ -1,5 +1,5 @@
 <ul>
   <li *ngFor="let a of animals">
-    <app-animal [animal]="a" (test)="onTest()"></app-animal>
+    <app-animal [animal]="a" (delete)="onDelete($event)"></app-animal>
   </li>
 </ul>

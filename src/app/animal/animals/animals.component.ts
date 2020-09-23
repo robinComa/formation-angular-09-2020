@@ -16,7 +16,7 @@ export class AnimalsComponent implements OnInit {
     this.animals = this.animalService.findAll();
   }
 
-  onTest(): void {
-    alert('test');
+  onDelete(animal: Animal): void {
+    console.log(animal);
   }
 }

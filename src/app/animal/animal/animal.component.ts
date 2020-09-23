@@ -9,13 +9,13 @@ import { Animal } from './../shared/animal';
 })
 export class AnimalComponent implements OnInit {
   @Input() animal: Animal;
-  @Output() test = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<Animal>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onTest(): void {
-    this.test.emit();
+  onDelete(): void {
+    this.delete.emit(this.animal);
   }
 }
