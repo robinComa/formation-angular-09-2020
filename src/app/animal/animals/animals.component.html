@@ -1,7 +1,8 @@
 <ul>
-  <li *ngFor="let animal of animals" appUppercase>
+  <li *ngFor="let animal of animals">
     <img [src]="animal.picture" />
-    {{ animal.name }}
+    <span appUppercase>{{ animal.name }}</span>
     {{ animal.naissance | date: "shortDate" }}
+    <p>{{ animal.commentaire | truncate: 20:"...(more)" }}</p>
   </li>
 </ul>
