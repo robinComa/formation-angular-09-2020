@@ -1,0 +1,22 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "naissance": 1234567890123,
+      "name": "Felix",
+      "espece": "Chat",
+      "veterinaire": "Mr Smith",
+      "commentaire": "Super sympas ce chat !",
+      "picture": "https://www.forumemploiseniors.fr/wp-content/uploads/2016/05/felix-couv.jpg"
+    },
+    {
+      "id": 2,
+      "naissance": 1234567890123,
+      "name": "Garfield",
+      "espece": "Chat",
+      "veterinaire": "Mr Smith",
+      "commentaire": "Super gros ce chat !",
+      "picture": "https://lachroniquefacile.fr/wp-content/uploads/2013/08/garfield.gif"
+    }
+  ]
+}
