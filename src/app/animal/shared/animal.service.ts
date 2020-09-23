@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Animal } from './animal';
 
-const animals: Animal[] = [
+let animals: Animal[] = [
   {
     id: 1,
     name: 'Le chat 1',
@@ -36,5 +36,9 @@ export class AnimalService {
 
   findAll(): Animal[] {
     return animals;
+  }
+
+  delete(id: number): void {
+    animals = animals.filter((a) => a.id !== id);
   }
 }

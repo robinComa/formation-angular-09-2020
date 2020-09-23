@@ -17,6 +17,7 @@ export class AnimalsComponent implements OnInit {
   }
 
   onDelete(animal: Animal): void {
-    console.log(animal);
+    this.animalService.delete(animal.id);
+    this.animals = this.animalService.findAll();
   }
 }
