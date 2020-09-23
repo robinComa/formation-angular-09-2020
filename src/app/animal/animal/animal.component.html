@@ -1,1 +1,5 @@
-<p>{{ animal.name }}</p>
+<h2>{{ animal?.name }}</h2>
+<img [src]="animal?.picture" />
+{{ animal?.naissance | date: "shortDate" }}
+<p>{{ animal?.commentaire | truncate: 20:"...(more)" }}</p>
+<button (click)="onTest()">Test</button>

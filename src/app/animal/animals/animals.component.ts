@@ -15,4 +15,8 @@ export class AnimalsComponent implements OnInit {
   ngOnInit(): void {
     this.animals = this.animalService.findAll();
   }
+
+  onTest(): void {
+    alert('test');
+  }
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Animal } from './../shared/animal';
-import { AnimalService } from './../shared/animal.service';
 
 @Component({
   selector: 'app-animal',
@@ -9,11 +8,14 @@ import { AnimalService } from './../shared/animal.service';
   styleUrls: ['./animal.component.scss'],
 })
 export class AnimalComponent implements OnInit {
-  animal: Animal;
+  @Input() animal: Animal;
+  @Output() test = new EventEmitter<void>();
 
-  constructor(private animalService: AnimalService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.animal = this.animalService.get(1);
+  ngOnInit(): void {}
+
+  onTest(): void {
+    this.test.emit();
   }
 }
