@@ -1,3 +1,5 @@
+<a routerLink="form">Créer un Animal</a>
+
 <ul>
   <li *ngFor="let a of animals">
     <app-animal [animal]="a" (delete)="onDelete($event)"></app-animal>

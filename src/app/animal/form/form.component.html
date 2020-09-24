@@ -1,0 +1,36 @@
+<form *ngIf="animal" (submit)="onSubmit()">
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" [(ngModel)]="animal.name" />
+  <hr />
+  <label for="naissance">Naissance</label>
+  <input
+    id="naissance"
+    type="text"
+    name="naissance"
+    [(ngModel)]="animal.naissance"
+  />
+  <hr />
+  <label for="espece">Espece</label>
+  <input id="espece" type="text" name="espece" [(ngModel)]="animal.espece" />
+  <hr />
+  <label for="veterinaire">Veterinaire</label>
+  <input
+    id="veterinaire"
+    type="text"
+    name="veterinaire"
+    [(ngModel)]="animal.veterinaire"
+  />
+  <hr />
+  <label for="commentaire">Commentaire</label>
+  <textarea
+    id="commentaire"
+    type="text"
+    name="commentaire"
+    [(ngModel)]="animal.commentaire"
+  ></textarea>
+  <hr />
+  <label for="picture">Picture</label>
+  <input id="picture" type="url" name="picture" [(ngModel)]="animal.picture" />
+  <hr />
+  <button type="submit">Sauvegarder</button>
+</form>

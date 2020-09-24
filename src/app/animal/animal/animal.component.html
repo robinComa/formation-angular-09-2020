@@ -3,4 +3,5 @@
 {{ animal?.naissance | date: "shortDate" }}
 <p>{{ animal?.commentaire | truncate: 20:"...(more)" }}</p>
 <button (click)="onDelete()">Delete</button>
+<a [routerLink]="['/', 'animals', 'form', animal?.id]">Modifier</a>
 <a [routerLink]="[animal?.id]">Voir</a>
