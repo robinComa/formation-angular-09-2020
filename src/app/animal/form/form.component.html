@@ -1,36 +1,85 @@
-<form *ngIf="animal" (submit)="onSubmit()">
+<form [formGroup]="animalForm" *ngIf="animalForm" (submit)="onSubmit()">
   <label for="name">Name</label>
-  <input id="name" type="text" name="name" [(ngModel)]="animal.name" />
+  <input
+    id="name"
+    type="text"
+    name="name"
+    formControlName="name"
+    required
+    minlength="4"
+  />
+  <p
+    class="error"
+    *ngIf="alreadySave && animalForm.get('name').errors?.required"
+  >
+    Ce champs est obligatoire
+  </p>
+  <p
+    class="error"
+    *ngIf="alreadySave && animalForm.get('name').errors?.minlength"
+  >
+    Ce champs doit avoir au moins 4 caractères
+  </p>
   <hr />
   <label for="naissance">Naissance</label>
   <input
     id="naissance"
-    type="text"
+    type="number"
     name="naissance"
-    [(ngModel)]="animal.naissance"
+    formControlName="naissance"
   />
+  <p
+    class="error"
+    *ngIf="alreadySave && animalForm.get('naissance').errors?.required"
+  >
+    Ce champs est obligatoire
+  </p>
   <hr />
   <label for="espece">Espece</label>
-  <input id="espece" type="text" name="espece" [(ngModel)]="animal.espece" />
+  <input id="espece" type="text" name="espece" formControlName="espece" />
+  <p
+    class="error"
+    *ngIf="alreadySave && animalForm.get('espece').errors?.required"
+  >
+    Ce champs est obligatoire
+  </p>
   <hr />
   <label for="veterinaire">Veterinaire</label>
   <input
     id="veterinaire"
     type="text"
     name="veterinaire"
-    [(ngModel)]="animal.veterinaire"
+    formControlName="veterinaire"
   />
+  <p
+    class="error"
+    *ngIf="alreadySave && animalForm.get('veterinaire').errors?.required"
+  >
+    Ce champs est obligatoire
+  </p>
   <hr />
   <label for="commentaire">Commentaire</label>
   <textarea
     id="commentaire"
     type="text"
     name="commentaire"
-    [(ngModel)]="animal.commentaire"
+    formControlName="commentaire"
   ></textarea>
+  <p
+    class="error"
+    *ngIf="alreadySave && animalForm.get('commentaire').errors?.required"
+  >
+    Ce champs est obligatoire
+  </p>
   <hr />
   <label for="picture">Picture</label>
-  <input id="picture" type="url" name="picture" [(ngModel)]="animal.picture" />
+  <input id="picture" type="url" name="picture" formControlName="picture" />
+  <p
+    class="error"
+    *ngIf="alreadySave && animalForm.get('picture').errors?.required"
+  >
+    Ce champs est obligatoire
+  </p>
   <hr />
   <button type="submit">Sauvegarder</button>
 </form>

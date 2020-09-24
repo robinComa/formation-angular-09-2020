@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AnimalComponent } from './animal/animal.component';
 import { AnimalService } from './shared/animal.service';
@@ -28,6 +28,7 @@ import { FormComponent } from './form/form.component';
     RouterModule,
     AnimalRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [AnimalComponent, AnimalsComponent],
   providers: [AnimalService],

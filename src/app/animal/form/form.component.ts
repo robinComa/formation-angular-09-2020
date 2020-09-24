@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Animal } from '../shared/animal';
@@ -10,7 +11,8 @@ import { AnimalService } from '../shared/animal.service';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit, OnDestroy {
-  animal: Animal;
+  animalForm: FormGroup;
+  alreadySave = false;
   private routeSubscription: Subscription;
 
   constructor(
@@ -36,14 +38,18 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    if (this.animal.id) {
-      this.animalService.update(this.animal).subscribe(() => {
-        this.router.navigate(['/', 'animals', this.animal.id]);
-      });
-    } else {
-      this.animalService.save(this.animal).subscribe((animal: Animal) => {
-        this.router.navigate(['/', 'animals', animal.id]);
-      });
+    this.alreadySave = true;
+    if (this.animalForm.valid) {
+      const animal = this.animalForm.value;
+      if (animal.id) {
+        this.animalService.update(animal).subscribe(() => {
+          this.router.navigate(['/', 'animals', animal.id]);
+        });
+      } else {
+        this.animalService.save(animal).subscribe((newAnimal: Animal) => {
+          this.router.navigate(['/', 'animals', newAnimal.id]);
+        });
+      }
     }
   }
 
@@ -58,6 +64,17 @@ export class FormComponent implements OnInit, OnDestroy {
       veterinaire: '',
     }
   ): void {
-    this.animal = animal;
+    this.animalForm = new FormGroup({
+      id: new FormControl(animal.id),
+      commentaire: new FormControl(animal.commentaire, [Validators.required]),
+      espece: new FormControl(animal.espece, [Validators.required]),
+      naissance: new FormControl(animal.naissance, [Validators.required]),
+      name: new FormControl(animal.name, [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
+      picture: new FormControl(animal.picture, [Validators.required]),
+      veterinaire: new FormControl(animal.veterinaire, [Validators.required]),
+    });
   }
 }
