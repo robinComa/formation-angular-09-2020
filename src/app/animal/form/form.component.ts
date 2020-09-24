@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Animal } from '../shared/animal';
 import { AnimalService } from '../shared/animal.service';
@@ -15,7 +15,8 @@ export class FormComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private animalService: AnimalService
+    private animalService: AnimalService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -37,11 +38,11 @@ export class FormComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     if (this.animal.id) {
       this.animalService.update(this.animal).subscribe(() => {
-        console.log('modif ok');
+        this.router.navigate(['/', 'animals', this.animal.id]);
       });
     } else {
-      this.animalService.save(this.animal).subscribe(() => {
-        console.log('modif ok');
+      this.animalService.save(this.animal).subscribe((animal: Animal) => {
+        this.router.navigate(['/', 'animals', animal.id]);
       });
     }
   }
