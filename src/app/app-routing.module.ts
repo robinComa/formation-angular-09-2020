@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AnimalsComponent } from './animal/animals/animals.component';
-import { DetailComponent } from './animal/detail/detail.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -11,11 +9,8 @@ const routes: Routes = [
   },
   {
     path: 'animals',
-    component: AnimalsComponent,
-  },
-  {
-    path: 'animals/:id',
-    component: DetailComponent,
+    loadChildren: () =>
+      import('./animal/animal.module').then((m) => m.AnimalModule),
   },
   {
     path: '**',

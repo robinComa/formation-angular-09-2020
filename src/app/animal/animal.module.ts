@@ -9,6 +9,7 @@ import { AnimalsComponent } from './animals/animals.component';
 import { UppercaseDirective } from './shared/uppercase.directive';
 import { TruncatePipe } from './shared/truncate.pipe';
 import { DetailComponent } from './detail/detail.component';
+import { AnimalRoutingModule } from './animal-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { DetailComponent } from './detail/detail.component';
     TruncatePipe,
     DetailComponent,
   ],
-  imports: [CommonModule, HttpClientModule, RouterModule],
+  imports: [CommonModule, HttpClientModule, RouterModule, AnimalRoutingModule],
   exports: [AnimalComponent, AnimalsComponent],
   providers: [AnimalService],
 })
