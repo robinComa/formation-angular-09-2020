@@ -1,5 +1,13 @@
 <mat-toolbar color="primary">
   <span>Animal App</span>
+  <span class="spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menuLang">
+    <mat-icon>language</mat-icon>
+  </button>
+  <mat-menu #menuLang="matMenu">
+    <button mat-menu-item (click)="setLang('en')">Anglais</button>
+    <button mat-menu-item (click)="setLang('fr')">Francais</button>
+  </mat-menu>
 </mat-toolbar>
 
 <nav mat-tab-nav-bar>

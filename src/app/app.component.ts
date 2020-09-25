@@ -18,4 +18,8 @@ export class AppComponent {
       exact: false,
     },
   ];
+
+  setLang(lang: string): void {
+    console.log(lang);
+  }
 }
