@@ -14,8 +14,12 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-button (click)="onDelete()"> Supprimer </a>
-    <a mat-button [routerLink]="['/', 'animals', 'form', animal?.id]">
+    <a mat-button color="warn" (click)="onDelete()"> Supprimer </a>
+    <a
+      mat-button
+      color="primary"
+      [routerLink]="['/', 'animals', 'form', animal?.id]"
+    >
       Modifier
     </a>
   </mat-card-actions>

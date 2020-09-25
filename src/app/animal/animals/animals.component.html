@@ -6,13 +6,16 @@
   <div>
     <mat-nav-list>
       <div mat-subheader>Animaux</div>
-      <mat-list-item *ngFor="let a of animals">
-        <a [routerLink]="[a.id]" (click)="drawer.open()">
-          <mat-icon mat-list-icon>pets</mat-icon>
-          <div mat-line>{{ a.name }}</div>
-          <div mat-line>{{ a.commentaire | truncate: 30 }}</div>
-        </a>
-      </mat-list-item>
+      <a
+        mat-list-item
+        *ngFor="let a of animals"
+        [routerLink]="[a.id]"
+        (click)="drawer.open()"
+      >
+        <mat-icon mat-list-icon>pets</mat-icon>
+        <div mat-line>{{ a.name }}</div>
+        <div mat-line>{{ a.commentaire | truncate: 30 }}</div>
+      </a>
     </mat-nav-list>
   </div>
 </mat-drawer-container>
