@@ -1,11 +1,28 @@
-<a routerLink="form">Créer un Animal</a>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="side" position="end">
+    <router-outlet></router-outlet>
+  </mat-drawer>
 
-<ul>
-  <li *ngFor="let a of animals">
-    <app-animal [animal]="a" (delete)="onDelete($event)"></app-animal>
-  </li>
-</ul>
+  <div>
+    <mat-nav-list>
+      <div mat-subheader>Animaux</div>
+      <mat-list-item *ngFor="let a of animals">
+        <a [routerLink]="[a.id]" (click)="drawer.open()">
+          <mat-icon mat-list-icon>pets</mat-icon>
+          <div mat-line>{{ a.name }}</div>
+          <div mat-line>{{ a.commentaire | truncate: 30 }}</div>
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+</mat-drawer-container>
 
-<div>
-  <router-outlet></router-outlet>
-</div>
+<a
+  class="add-btn"
+  mat-fab
+  color="primary"
+  routerLink="form"
+  (click)="drawer.open()"
+>
+  <mat-icon>add</mat-icon>
+</a>

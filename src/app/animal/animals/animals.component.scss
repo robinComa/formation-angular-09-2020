@@ -1,8 +1,28 @@
 :host {
   display: flex;
+  height: calc(100% - 66px);
 }
 
-ul,
-div {
-  width: 50%;
+mat-drawer-container {
+  flex: 1;
+}
+
+.add-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99999;
+}
+
+mat-list-item {
+  a {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+mat-drawer {
+  width: calc(100% - 2rem);
+  max-width: 400px;
+  padding: 1rem;
 }

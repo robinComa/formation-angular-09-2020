@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
 
 import { AnimalComponent } from './animal/animal.component';
 import { AnimalService } from './shared/animal.service';
@@ -29,6 +34,11 @@ import { FormComponent } from './form/form.component';
     AnimalRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatSidenavModule,
+    MatCardModule,
   ],
   exports: [AnimalComponent, AnimalsComponent],
   providers: [AnimalService],
