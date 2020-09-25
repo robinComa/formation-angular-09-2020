@@ -17,6 +17,7 @@ import { TruncatePipe } from './shared/truncate.pipe';
 import { DetailComponent } from './detail/detail.component';
 import { AnimalRoutingModule } from './animal-routing.module';
 import { FormComponent } from './form/form.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FormComponent } from './form/form.component';
     MatListModule,
     MatSidenavModule,
     MatCardModule,
+    TranslateModule,
   ],
   exports: [AnimalComponent, AnimalsComponent],
   providers: [AnimalService],

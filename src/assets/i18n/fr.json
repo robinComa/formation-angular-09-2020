@@ -1,5 +1,10 @@
 {
   "nav": {
     "title": "Animaux"
+  },
+  "pages": {
+    "animals": {
+      "subheader": "Animaux"
+    }
   }
 }

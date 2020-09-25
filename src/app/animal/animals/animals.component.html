@@ -5,7 +5,9 @@
 
   <div>
     <mat-nav-list>
-      <div mat-subheader>Animaux</div>
+      <div mat-subheader>
+        {{ "pages.animals.subheader" | translate }}
+      </div>
       <a
         mat-list-item
         *ngFor="let a of animals"
